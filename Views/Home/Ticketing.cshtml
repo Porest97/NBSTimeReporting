@@ -4,5 +4,36 @@
 }
 
 <h1>Ticketing - All ticketingtools !</h1>
+<h1>Tickets</h1>
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Tickets" asp-action="ListTickets">Tickets</a>
+    </li>
+</ul>
+
+<h1>Ticket Priorities</h1>
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="TicketPriorities" asp-action="ListTicketPriorities">Ticket Priorities</a>
+    </li>
+</ul>
+
+<h1>Ticket Statuses</h1>
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="TicketStatus" asp-action="ListTicketStatuses">Ticket Statuses</a>
+    </li>
+</ul>
+
+<h1>Ticket Types</h1>
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="TicketTypes" asp-action="ListTicketTypes">Ticket Types</a>
+    </li>
+</ul>
+<h4>------------------</h4>
 
 <a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Index">Home</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Admin">Admin</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Reporting">Reporting</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Accounting">Accounting</a>

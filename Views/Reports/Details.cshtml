@@ -1,0 +1,78 @@
+﻿@model NBSTimeReporting.Models.DataModels.Report
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Report</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ReportStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ReportStatus.ReportStatusName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ReportType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ReportType.ReportTypeName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Emloyee)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Emloyee.FullName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Site)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Site.SiteName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ticket)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ticket.IncidentNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateTimeStarted)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateTimeStarted)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateTimeEnded)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateTimeEnded)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WorkHours)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WorkHours)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ticket.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ticket.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ticket.Resolution)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ticket.Resolution)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    <a class="btn btn-sm btn-success" asp-action="ListReports">Back to Reports</a>
+</div>

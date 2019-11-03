@@ -1,0 +1,37 @@
+﻿@model NBSTimeReporting.Models.ViewModels.SettingsViewModel
+@{
+    ViewData["Title"] = "ListReportStatuses";
+}
+
+<h1>ListReportStatuses</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="ReportStatus" asp-action="Create">Create new status</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Reporting">Back to Reporting</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReportStatuses[0].ReportStatusName)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ReportStatuses.OrderBy(r => r.ReportStatusName))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReportStatusName)
+                </td>
+
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="ReportStatus" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="ReportStatus" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="ReportStatus" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

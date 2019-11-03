@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NBSTimeReporting.Data;
 
 namespace NBSTimeReporting.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191103131200_TicketsAdded")]
+    partial class TicketsAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -335,52 +337,6 @@ namespace NBSTimeReporting.Data.Migrations
                     b.ToTable("Person");
                 });
 
-            modelBuilder.Entity("NBSTimeReporting.Models.DataModels.Report", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DateTimeEnded")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateTimeStarted")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("PersonId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ReportStatusId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ReportTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SiteId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TicketId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("WorkHours")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PersonId");
-
-                    b.HasIndex("ReportStatusId");
-
-                    b.HasIndex("ReportTypeId");
-
-                    b.HasIndex("SiteId");
-
-                    b.HasIndex("TicketId");
-
-                    b.ToTable("Report");
-                });
-
             modelBuilder.Entity("NBSTimeReporting.Models.DataModels.Site", b =>
                 {
                     b.Property<int>("Id")
@@ -614,36 +570,6 @@ namespace NBSTimeReporting.Data.Migrations
                     b.ToTable("PersonType");
                 });
 
-            modelBuilder.Entity("NBSTimeReporting.Models.SettingModels.ReportStatus", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ReportStatusName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ReportStatus");
-                });
-
-            modelBuilder.Entity("NBSTimeReporting.Models.SettingModels.ReportType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ReportTypeName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ReportType");
-                });
-
             modelBuilder.Entity("NBSTimeReporting.Models.SettingModels.SiteRole", b =>
                 {
                     b.Property<int>("Id")
@@ -817,29 +743,6 @@ namespace NBSTimeReporting.Data.Migrations
                     b.HasOne("NBSTimeReporting.Models.SettingModels.PersonType", "PersonType")
                         .WithMany()
                         .HasForeignKey("PersonTypeId");
-                });
-
-            modelBuilder.Entity("NBSTimeReporting.Models.DataModels.Report", b =>
-                {
-                    b.HasOne("NBSTimeReporting.Models.DataModels.Person", "Emloyee")
-                        .WithMany()
-                        .HasForeignKey("PersonId");
-
-                    b.HasOne("NBSTimeReporting.Models.SettingModels.ReportStatus", "ReportStatus")
-                        .WithMany()
-                        .HasForeignKey("ReportStatusId");
-
-                    b.HasOne("NBSTimeReporting.Models.SettingModels.ReportType", "ReportType")
-                        .WithMany()
-                        .HasForeignKey("ReportTypeId");
-
-                    b.HasOne("NBSTimeReporting.Models.DataModels.Site", "Site")
-                        .WithMany()
-                        .HasForeignKey("SiteId");
-
-                    b.HasOne("NBSTimeReporting.Models.DataModels.Ticket", "Ticket")
-                        .WithMany()
-                        .HasForeignKey("TicketId");
                 });
 
             modelBuilder.Entity("NBSTimeReporting.Models.DataModels.Site", b =>

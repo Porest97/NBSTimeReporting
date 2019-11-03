@@ -1,0 +1,37 @@
+﻿@model NBSTimeReporting.Models.ViewModels.SettingsViewModel
+@{
+    ViewData["Title"] = "ListTicketStatuses";
+}
+
+<h1>Ticket Statuses</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="TicketStatus" asp-action="Create">Create new status</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Ticketing">Back to Ticketing</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TicketStatuses[0].TicketStatusName)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.TicketStatuses.OrderBy(ts => ts.TicketStatusName))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TicketStatusName)
+                </td>
+
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="TicketStatus" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="TicketStatus" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="TicketStatus" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

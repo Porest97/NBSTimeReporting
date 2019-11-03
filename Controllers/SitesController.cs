@@ -33,6 +33,7 @@ namespace NBSTimeReporting.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        // GET: ListSites
         public IActionResult ListSites()
         {
 

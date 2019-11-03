@@ -1,0 +1,66 @@
+﻿@model NBSTimeReporting.Models.DataModels.Report
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Report</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="ReportStatusId" class="control-label"></label>
+                <select asp-for="ReportStatusId" class="form-control" asp-items="ViewBag.ReportStatusId"></select>
+                <span asp-validation-for="ReportStatusId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReportTypeId" class="control-label"></label>
+                <select asp-for="ReportTypeId" class="form-control" asp-items="ViewBag.ReportTypeId"></select>
+                <span asp-validation-for="ReportTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonId" class="control-label"></label>
+                <select asp-for="PersonId" class="form-control" asp-items="ViewBag.PersonId"></select>
+                <span asp-validation-for="PersonId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SiteId" class="control-label"></label>
+                <select asp-for="SiteId" class="form-control" asp-items="ViewBag.SiteId"></select>
+                <span asp-validation-for="SiteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TicketId" class="control-label"></label>
+                <select asp-for="TicketId" class="form-control" asp-items="ViewBag.TicketId"></select>
+                <span asp-validation-for="TicketId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTimeStarted" class="control-label"></label>
+                <input asp-for="DateTimeStarted" class="form-control" />
+                <span asp-validation-for="DateTimeStarted" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTimeEnded" class="control-label"></label>
+                <input asp-for="DateTimeEnded" class="form-control" />
+                <span asp-validation-for="DateTimeEnded" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkHours" class="control-label"></label>
+                <input asp-for="WorkHours" class="form-control" />
+                <span asp-validation-for="WorkHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-sm btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-sm btn-success" asp-action="ListReports">Back to Reports</a>
+</div>
+
