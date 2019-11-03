@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "People";
+}
+
+<h1>People</h1>
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="People" asp-action="ListPeople">People</a>
+    </li>
+</ul>
+
+<h1>Person roles</h1>
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="PersonRoles" asp-action="ListPersonRoles">Personroles</a>
+    </li>
+</ul>
+
+<h1>Person statuses</h1>
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="PersonStatus" asp-action="ListPersonStatuses">Person statuses</a>
+    </li>
+</ul>
+
+<h1>Person types</h1>
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="PersonTypes" asp-action="ListPersonTypes">Person types</a>
+    </li>
+</ul>
+
+<h4>------------------</h4>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Admin">Back to Admin</a>

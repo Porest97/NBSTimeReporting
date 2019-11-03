@@ -1,0 +1,37 @@
+﻿@model NBSTimeReporting.Models.ViewModels.SettingsViewModel
+@{
+    ViewData["Title"] = "ListCompanyTypes";
+}
+
+<h1>Company Types</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="CompanyTypes" asp-action="Create">Create new role</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Companies">Back to Companies</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyTypes[0].CompanyTypeName)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CompanyTypes.OrderBy(p => p.CompanyTypeName))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyTypeName)
+                </td>
+
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="CompanyTypes" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="CompanyTypes" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="CompanyTypes" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

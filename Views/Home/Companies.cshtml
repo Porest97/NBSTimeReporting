@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "Companies";
+}
+
+<h1>Companies</h1>
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Companies" asp-action="ListCompanies">Companies</a>
+    </li>
+</ul>
+
+<h1>Company roles</h1>
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="CompanyRoles" asp-action="ListCompanyRoles">Company roles</a>
+    </li>
+</ul>
+
+<h1>Company statuses</h1>
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="CompanyStatus" asp-action="ListCompanyStatuses">Company statuses</a>
+    </li>
+</ul>
+
+<h1>Company types</h1>
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="CompanyTypes" asp-action="ListCompanyTypes">Company types</a>
+    </li>
+</ul>
+<h4>------------------</h4>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Admin">Back to Admin</a>
