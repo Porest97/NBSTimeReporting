@@ -45,7 +45,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Reports.OrderBy(r => r.Emloyee))
+        @foreach (var item in Model.Reports.OrderByDescending(r => r.DateTimeStarted))
         {
             <tr>
                 <td>
@@ -81,3 +81,5 @@
         }
     </tbody>
 </table>
+<h3>Work notes !</h3>
+<textarea id="TextArea1" rows="20" cols="150"></textarea>

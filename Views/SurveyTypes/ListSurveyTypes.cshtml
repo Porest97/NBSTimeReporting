@@ -1,0 +1,37 @@
+﻿@model NBSTimeReporting.Models.ViewModels.SettingsViewModel
+@{
+    ViewData["Title"] = "ListSurveyTypes";
+}
+
+<h1>Survey Types</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="SurveyTypes" asp-action="Create">Create new type</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Reporting">Back to Reporting</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SurveyTypes[0].SurveyTypeName)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.SurveyTypes.OrderBy(s => s.SurveyTypeName))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SurveyTypeName)
+                </td>
+
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="SurveyTypes" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="SurveyTypes" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="SurveyTypes" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

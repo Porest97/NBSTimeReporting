@@ -1,0 +1,95 @@
+﻿@model IEnumerable<NBSTimeReporting.Models.DataModels.Survey>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SurveyStatusId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SurveyType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ticket)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Version)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SurveyStarted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SurveyEnded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfAPs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.APBrandModel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.APFloorMap)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NetSpotReport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpeedTestIMG)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurveyStatusId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurveyType.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ticket.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Version)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurveyStarted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurveyEnded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfAPs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.APBrandModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.APFloorMap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NetSpotReport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpeedTestIMG)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

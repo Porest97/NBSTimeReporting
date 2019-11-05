@@ -48,7 +48,26 @@ namespace NBSTimeReporting.Controllers
                 .Include(t => t.Site)
                 .Include(t => t.TicketPriority)
                 .Include(t => t.TicketStatus)
-                .Include(t => t.TicketType)
+                .Include(t => t.TicketType).Where(t => t.TicketStatusId < 3 )
+                .ToList()
+            };
+            return View(ticketsViewModel);
+        }
+
+        public IActionResult ListTicketsSolved()
+        {
+
+
+            var ticketsViewModel = new TicketsViewModel()
+            {
+                Tickets = _context.Ticket
+                .Include(t => t.Creator)
+                .Include(t => t.FEAssigned)
+                .Include(t => t.Receiver)
+                .Include(t => t.Site)
+                .Include(t => t.TicketPriority)
+                .Include(t => t.TicketStatus)
+                .Include(t => t.TicketType).Where(t => t.TicketStatusId == 3)
                 .ToList()
             };
             return View(ticketsViewModel);

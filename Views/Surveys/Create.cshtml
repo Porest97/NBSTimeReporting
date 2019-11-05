@@ -1,0 +1,77 @@
+﻿@model NBSTimeReporting.Models.DataModels.Survey
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Survey</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SurveyStatusId" class="control-label"></label>
+                <select asp-for="SurveyStatusId" class="form-control" asp-items="ViewBag.SurveyStatusId"></select>                
+            </div>
+            <div class="form-group">
+                <label asp-for="SurveyTypeId" class="control-label"></label>
+                <select asp-for="SurveyTypeId" class ="form-control" asp-items="ViewBag.SurveyTypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TicketId" class="control-label"></label>
+                <select asp-for="TicketId" class ="form-control" asp-items="ViewBag.TicketId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Version" class="control-label"></label>
+                <input asp-for="Version" class="form-control" />
+                <span asp-validation-for="Version" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SurveyStarted" class="control-label"></label>
+                <input asp-for="SurveyStarted" class="form-control" />
+                <span asp-validation-for="SurveyStarted" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SurveyEnded" class="control-label"></label>
+                <input asp-for="SurveyEnded" class="form-control" />
+                <span asp-validation-for="SurveyEnded" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfAPs" class="control-label"></label>
+                <input asp-for="NumberOfAPs" class="form-control" />
+                <span asp-validation-for="NumberOfAPs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="APBrandModel" class="control-label"></label>
+                <input asp-for="APBrandModel" class="form-control" />
+                <span asp-validation-for="APBrandModel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="APFloorMap" class="control-label"></label>
+                <input asp-for="APFloorMap" class="form-control" />
+                <span asp-validation-for="APFloorMap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NetSpotReport" class="control-label"></label>
+                <input asp-for="NetSpotReport" class="form-control" />
+                <span asp-validation-for="NetSpotReport" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SpeedTestIMG" class="control-label"></label>
+                <input asp-for="SpeedTestIMG" class="form-control" />
+                <span asp-validation-for="SpeedTestIMG" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

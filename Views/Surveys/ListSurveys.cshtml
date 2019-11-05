@@ -1,0 +1,65 @@
+﻿@model NBSTimeReporting.Models.ViewModels.SurveysViewModel
+@{
+    ViewData["Title"] = "ListSurveys";
+}
+
+<h1>Surveys</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="Surveys" asp-action="Create">Create new Survey</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Reporting">Back to Reporting</a>
+
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Surveys[0].Ticket)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Surveys[0].Ticket.Site)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Surveys[0].SurveyStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Surveys[0].SurveyType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Surveys[0].Ticket.FEAssigned)
+            </th>
+           
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Surveys.OrderByDescending(s => s.SurveyType))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ticket.IncidentNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ticket.Site.SiteName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SurveyStatus.SurveyStatusName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SurveyType.SurveyTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ticket.FEAssigned.FullName)
+                </td>
+                
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="Surveys" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="Surveys" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="Surveys" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h3>Work notes !</h3>
+<textarea id="TextArea1" rows="20" cols="150"></textarea>

@@ -32,6 +32,9 @@ namespace NBSTimeReporting.Data
         public DbSet<NBSTimeReporting.Models.DataModels.Ticket> Ticket { get; set; }
         public DbSet<NBSTimeReporting.Models.SettingModels.ReportStatus> ReportStatus { get; set; }
         public DbSet<NBSTimeReporting.Models.SettingModels.ReportType> ReportType { get; set; }
-        public DbSet<NBSTimeReporting.Models.DataModels.Report> Report { get; set; }
+        public DbSet<NBSTimeReporting.Models.DataModels.Report> Report { get; set; }        
+        public DbSet<NBSTimeReporting.Models.SettingModels.SurveyStatus> SurveyStatus { get; set; }
+        public DbSet<NBSTimeReporting.Models.SettingModels.SurveyType> SurveyType { get; set; }
+        public DbSet<NBSTimeReporting.Models.DataModels.Survey> Survey { get; set; }
     }
 }
