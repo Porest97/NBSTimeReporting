@@ -1,0 +1,82 @@
+﻿@model NBSTimeReporting.Models.ViewModels.ReportsViewModel
+@{
+    ViewData["Title"] = "ListReportsPO";
+}
+
+<h1>Reports Emplyee => Per Orest</h1>
+<h4>Hours: @Model.Reports.Sum(i => i.WorkHours)</h4>
+<a class="btn btn-sm btn-success" asp-controller="Reports" asp-action="Create">Create new Report</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Reporting">Back to Reporting</a>
+
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports[0].ReportStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports[0].ReportType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports[0].Ticket.IncidentNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports[0].Ticket.Site)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports[0].Emloyee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports[0].DateTimeStarted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports[0].DateTimeEnded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports[0].WorkHours)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Reports.OrderByDescending(r => r.DateTimeStarted))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReportStatus.ReportStatusName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReportType.ReportTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ticket.IncidentNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ticket.Site.SiteName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Emloyee.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTimeStarted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTimeEnded)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WorkHours)
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="Reports" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="Reports" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="Reports" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h3>Work notes !</h3>
+<textarea id="TextArea1" rows="20" cols="150"></textarea>
+

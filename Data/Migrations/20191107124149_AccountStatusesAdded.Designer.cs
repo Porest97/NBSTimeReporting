@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NBSTimeReporting.Data;
 
 namespace NBSTimeReporting.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191107124149_AccountStatusesAdded")]
+    partial class AccountStatusesAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -217,34 +219,6 @@ namespace NBSTimeReporting.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("NBSTimeReporting.Models.AccountingModels.EmployeeAccount", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AccountNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("AccountStatusId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("EmployeeAccountDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("PersonId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccountStatusId");
-
-                    b.HasIndex("PersonId");
-
-                    b.ToTable("EmployeeAccount");
                 });
 
             modelBuilder.Entity("NBSTimeReporting.Models.DataModels.Company", b =>
@@ -907,17 +881,6 @@ namespace NBSTimeReporting.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("NBSTimeReporting.Models.AccountingModels.EmployeeAccount", b =>
-                {
-                    b.HasOne("NBSTimeReporting.Models.SettingModels.AccountStatus", "AccountStatus")
-                        .WithMany()
-                        .HasForeignKey("AccountStatusId");
-
-                    b.HasOne("NBSTimeReporting.Models.DataModels.Person", "Employee")
-                        .WithMany()
-                        .HasForeignKey("PersonId");
                 });
 
             modelBuilder.Entity("NBSTimeReporting.Models.DataModels.Company", b =>

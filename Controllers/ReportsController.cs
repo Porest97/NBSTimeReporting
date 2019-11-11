@@ -52,6 +52,44 @@ namespace NBSTimeReporting.Controllers
             return View(reportsViewModel);
         }
 
+        // GET: ListReportsPO
+        public IActionResult ListReportsPO()
+        {
+
+
+            var reportsViewModel = new ReportsViewModel()
+            {
+                Reports = _context.Report
+                .Include(r => r.Emloyee)
+                .Include(r => r.ReportStatus)
+                .Include(r => r.ReportType)
+                .Include(r => r.Site)
+                .Include(r => r.Ticket)
+                .Include(r => r.Ticket.Site).Where(r=>r.PersonId == 1)
+                .ToList()
+            };
+            return View(reportsViewModel);
+        }
+
+        // GET: ListReportsJM
+        public IActionResult ListReportsJM()
+        {
+
+
+            var reportsViewModel = new ReportsViewModel()
+            {
+                Reports = _context.Report
+                .Include(r => r.Emloyee)
+                .Include(r => r.ReportStatus)
+                .Include(r => r.ReportType)
+                .Include(r => r.Site)
+                .Include(r => r.Ticket)
+                .Include(r => r.Ticket.Site).Where(r => r.PersonId == 2)
+                .ToList()
+            };
+            return View(reportsViewModel);
+        }
+
         // GET: Reports/Details/5
         public async Task<IActionResult> Details(int? id)
         {

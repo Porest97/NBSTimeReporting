@@ -47,5 +47,9 @@ namespace NBSTimeReporting.Models.ViewModels
         public List<SurveyStatus> SurveyStatuses { get; internal set; }
 
         public List<SurveyType> SurveyTypes { get; internal set; }
+
+        //Accounts
+
+        public List<AccountStatus> AccountStatuses { get; internal set; }
     }
 }

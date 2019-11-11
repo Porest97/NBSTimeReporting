@@ -11,32 +11,32 @@ using NBSTimeReporting.Models.ViewModels;
 
 namespace NBSTimeReporting.Controllers.SettingControllers
 {
-    public class CompanyStatusController : Controller
+    public class AccountStatusController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public CompanyStatusController(ApplicationDbContext context)
+        public AccountStatusController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: CompanyStatus
+        // GET: AccountStatus
         public async Task<IActionResult> Index()
         {
-            return View(await _context.CompanyStatus.ToListAsync());
+            return View(await _context.AccountStatus.ToListAsync());
         }
 
-        // GET: ListCompanyStatuses
-        public IActionResult ListCompanyStatuses()
+        // GET: ListAccountStatuses
+        public IActionResult ListAccountStatuses()
         {
             var settingsViewModel = new SettingsViewModel()
             {
-                CompanyStatuses = _context.CompanyStatus.ToList()
+                AccountStatuses = _context.AccountStatus.ToList()
             };
             return View(settingsViewModel);
         }
 
-        // GET: CompanyStatus/Details/5
+        // GET: AccountStatus/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,39 +44,39 @@ namespace NBSTimeReporting.Controllers.SettingControllers
                 return NotFound();
             }
 
-            var companyStatus = await _context.CompanyStatus
+            var accountStatus = await _context.AccountStatus
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (companyStatus == null)
+            if (accountStatus == null)
             {
                 return NotFound();
             }
 
-            return View(companyStatus);
+            return View(accountStatus);
         }
 
-        // GET: CompanyStatus/Create
+        // GET: AccountStatus/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: CompanyStatus/Create
+        // POST: AccountStatus/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CompanyStatusName")] CompanyStatus companyStatus)
+        public async Task<IActionResult> Create([Bind("Id,AccountStatusName")] AccountStatus accountStatus)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(companyStatus);
+                _context.Add(accountStatus);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(ListCompanyStatuses));
+                return RedirectToAction(nameof(ListAccountStatuses));
             }
-            return View(companyStatus);
+            return View(accountStatus);
         }
 
-        // GET: CompanyStatus/Edit/5
+        // GET: AccountStatus/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -84,22 +84,22 @@ namespace NBSTimeReporting.Controllers.SettingControllers
                 return NotFound();
             }
 
-            var companyStatus = await _context.CompanyStatus.FindAsync(id);
-            if (companyStatus == null)
+            var accountStatus = await _context.AccountStatus.FindAsync(id);
+            if (accountStatus == null)
             {
                 return NotFound();
             }
-            return View(companyStatus);
+            return View(accountStatus);
         }
 
-        // POST: CompanyStatus/Edit/5
+        // POST: AccountStatus/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CompanyStatusName")] CompanyStatus companyStatus)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,AccountStatusName")] AccountStatus accountStatus)
         {
-            if (id != companyStatus.Id)
+            if (id != accountStatus.Id)
             {
                 return NotFound();
             }
@@ -108,12 +108,12 @@ namespace NBSTimeReporting.Controllers.SettingControllers
             {
                 try
                 {
-                    _context.Update(companyStatus);
+                    _context.Update(accountStatus);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CompanyStatusExists(companyStatus.Id))
+                    if (!AccountStatusExists(accountStatus.Id))
                     {
                         return NotFound();
                     }
@@ -122,12 +122,12 @@ namespace NBSTimeReporting.Controllers.SettingControllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(ListCompanyStatuses));
+                return RedirectToAction(nameof(ListAccountStatuses));
             }
-            return View(companyStatus);
+            return View(accountStatus);
         }
 
-        // GET: CompanyStatus/Delete/5
+        // GET: AccountStatus/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,30 +135,30 @@ namespace NBSTimeReporting.Controllers.SettingControllers
                 return NotFound();
             }
 
-            var companyStatus = await _context.CompanyStatus
+            var accountStatus = await _context.AccountStatus
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (companyStatus == null)
+            if (accountStatus == null)
             {
                 return NotFound();
             }
 
-            return View(companyStatus);
+            return View(accountStatus);
         }
 
-        // POST: CompanyStatus/Delete/5
+        // POST: AccountStatus/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var companyStatus = await _context.CompanyStatus.FindAsync(id);
-            _context.CompanyStatus.Remove(companyStatus);
+            var accountStatus = await _context.AccountStatus.FindAsync(id);
+            _context.AccountStatus.Remove(accountStatus);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(ListCompanyStatuses));
+            return RedirectToAction(nameof(ListAccountStatuses));
         }
 
-        private bool CompanyStatusExists(int id)
+        private bool AccountStatusExists(int id)
         {
-            return _context.CompanyStatus.Any(e => e.Id == id);
+            return _context.AccountStatus.Any(e => e.Id == id);
         }
     }
 }

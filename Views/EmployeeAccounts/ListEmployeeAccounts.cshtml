@@ -1,0 +1,56 @@
+﻿@model NBSTimeReporting.Models.ViewModels.EmployeeAccountsViewModel
+@{
+    ViewData["Title"] = "ListEmployeeAccounts";
+}
+
+<h1>Employee Accounts</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="EmployeeAccounts" asp-action="Create">Create new Account</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Accounting">Back to Accounting</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeAccounts[0].AccountNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeAccounts[0].AccountStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeAccounts[0].Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeAccounts[0].EmployeeAccountDescription)
+            </th>
+           
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.EmployeeAccounts.OrderBy(ea => ea.Employee.FullName))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountStatus.AccountStatusName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee.FullName)
+                </td>
+                
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="EmployeeAccounts" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="EmployeeAccounts" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="EmployeeAccounts" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@*<h3>Work notes !</h3>
+    <textarea id="TextArea1" rows="20" cols="150"></textarea>*@
+

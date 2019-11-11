@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using NBSTimeReporting.Models.SettingModels;
 using NBSTimeReporting.Models.DataModels;
+using NBSTimeReporting.Models.AccountingModels;
 
 namespace NBSTimeReporting.Data
 {
@@ -36,5 +37,7 @@ namespace NBSTimeReporting.Data
         public DbSet<NBSTimeReporting.Models.SettingModels.SurveyStatus> SurveyStatus { get; set; }
         public DbSet<NBSTimeReporting.Models.SettingModels.SurveyType> SurveyType { get; set; }
         public DbSet<NBSTimeReporting.Models.DataModels.Survey> Survey { get; set; }
+        public DbSet<NBSTimeReporting.Models.SettingModels.AccountStatus> AccountStatus { get; set; }
+        public DbSet<NBSTimeReporting.Models.AccountingModels.EmployeeAccount> EmployeeAccount { get; set; }
     }
 }
