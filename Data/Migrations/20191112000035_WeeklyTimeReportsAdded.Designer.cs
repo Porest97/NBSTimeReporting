@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NBSTimeReporting.Data;
 
 namespace NBSTimeReporting.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191112000035_WeeklyTimeReportsAdded")]
+    partial class WeeklyTimeReportsAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -245,60 +247,6 @@ namespace NBSTimeReporting.Data.Migrations
                     b.HasIndex("PersonId");
 
                     b.ToTable("EmployeeAccount");
-                });
-
-            modelBuilder.Entity("NBSTimeReporting.Models.AccountingModels.MonthlyTimeReport", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("FromDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Month")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ReportStatusId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ToDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("TotalTimeWorked")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int?>("WeeklyTimeReportId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("WeeklyTimeReportId1")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("WeeklyTimeReportId2")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("WeeklyTimeReportId3")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("WeeklyTimeReportId4")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ReportStatusId");
-
-                    b.HasIndex("WeeklyTimeReportId");
-
-                    b.HasIndex("WeeklyTimeReportId1");
-
-                    b.HasIndex("WeeklyTimeReportId2");
-
-                    b.HasIndex("WeeklyTimeReportId3");
-
-                    b.HasIndex("WeeklyTimeReportId4");
-
-                    b.ToTable("MonthlyTimeReport");
                 });
 
             modelBuilder.Entity("NBSTimeReporting.Models.AccountingModels.WeeklyTimeReport", b =>
@@ -1090,33 +1038,6 @@ namespace NBSTimeReporting.Data.Migrations
                     b.HasOne("NBSTimeReporting.Models.DataModels.Person", "Employee")
                         .WithMany()
                         .HasForeignKey("PersonId");
-                });
-
-            modelBuilder.Entity("NBSTimeReporting.Models.AccountingModels.MonthlyTimeReport", b =>
-                {
-                    b.HasOne("NBSTimeReporting.Models.SettingModels.ReportStatus", "ReportStatus")
-                        .WithMany()
-                        .HasForeignKey("ReportStatusId");
-
-                    b.HasOne("NBSTimeReporting.Models.AccountingModels.WeeklyTimeReport", "WTR1")
-                        .WithMany()
-                        .HasForeignKey("WeeklyTimeReportId");
-
-                    b.HasOne("NBSTimeReporting.Models.AccountingModels.WeeklyTimeReport", "WTR2")
-                        .WithMany()
-                        .HasForeignKey("WeeklyTimeReportId1");
-
-                    b.HasOne("NBSTimeReporting.Models.AccountingModels.WeeklyTimeReport", "WTR3")
-                        .WithMany()
-                        .HasForeignKey("WeeklyTimeReportId2");
-
-                    b.HasOne("NBSTimeReporting.Models.AccountingModels.WeeklyTimeReport", "WTR4")
-                        .WithMany()
-                        .HasForeignKey("WeeklyTimeReportId3");
-
-                    b.HasOne("NBSTimeReporting.Models.AccountingModels.WeeklyTimeReport", "WTR5")
-                        .WithMany()
-                        .HasForeignKey("WeeklyTimeReportId4");
                 });
 
             modelBuilder.Entity("NBSTimeReporting.Models.AccountingModels.WeeklyTimeReport", b =>

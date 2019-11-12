@@ -39,5 +39,7 @@ namespace NBSTimeReporting.Data
         public DbSet<NBSTimeReporting.Models.DataModels.Survey> Survey { get; set; }
         public DbSet<NBSTimeReporting.Models.SettingModels.AccountStatus> AccountStatus { get; set; }
         public DbSet<NBSTimeReporting.Models.AccountingModels.EmployeeAccount> EmployeeAccount { get; set; }
+        public DbSet<NBSTimeReporting.Models.AccountingModels.WeeklyTimeReport> WeeklyTimeReport { get; set; }
+        public DbSet<NBSTimeReporting.Models.AccountingModels.MonthlyTimeReport> MonthlyTimeReport { get; set; }
     }
 }

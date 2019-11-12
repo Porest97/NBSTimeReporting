@@ -1,0 +1,227 @@
+﻿@model IEnumerable<NBSTimeReporting.Models.AccountingModels.WeeklyTimeReport>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReportStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeekNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FromDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emloyee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day1Started)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day1Ended)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkedDay1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day2Started)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day2Ended)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkedDay2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day3Started)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day3Ended)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkedDay3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day4Started)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day4Ended)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkedDay4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day5Started)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day5Ended)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkedDay5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day6Started)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day6Ended)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkedDay6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day7Started)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day7Ended)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkedDay7)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReportStatus.ReportStatusName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeekNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FromDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emloyee.CName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day1Started)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day1Ended)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkedDay1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day2Started)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day2Ended)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkedDay2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day3Started)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day3Ended)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkedDay3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day4Started)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day4Ended)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkedDay4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day5Started)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day5Ended)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkedDay5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day6Started)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day6Ended)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkedDay6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day7)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day7Started)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day7Ended)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkedDay7)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,76 @@
+﻿@model NBSTimeReporting.Models.ViewModels.WeeklyTimeReportsViewModel
+@{
+    ViewData["Title"] = "ListWeeklyTimeReports";
+}
+
+<h1>Weekly Time Reports</h1>
+
+<h4>Hours: @Model.WeeklyTimeReports.Sum(i => i.WorkedHoursTotal)</h4>
+
+
+
+
+<a class="btn btn-sm btn-success" asp-controller="WeeklyTimeReports" asp-action="Create">Create new Report</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Reporting">Back to Reporting</a>
+
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.WeeklyTimeReports[0].ReportStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeeklyTimeReports[0].WeekNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeeklyTimeReports[0].FromDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeeklyTimeReports[0].ToDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeeklyTimeReports[0].Emloyee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeeklyTimeReports[0].WorkedHoursTotal)
+            </th>
+            
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.WeeklyTimeReports.OrderBy(wtr => wtr.WeekNumber))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReportStatus.ReportStatusName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WeekNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Emloyee.CName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WorkedHoursTotal)
+                </td>
+                
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="WeeklyTimeReports" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="WeeklyTimeReports" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="WeeklyTimeReports" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h3>Work notes !</h3>
+<textarea id="TextArea1" rows="20" cols="150"></textarea>
