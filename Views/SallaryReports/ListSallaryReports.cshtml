@@ -1,0 +1,80 @@
+﻿@model NBSTimeReporting.Models.ViewModels.SallaryReportsViewModel
+@{
+    ViewData["Title"] = "ListSallaryReports";
+}
+
+<h1>Sallary Reports</h1>
+
+<h4>Hours: @Model.SallaryReports.Sum(sr => sr.TimeWorked)</h4>
+<h4>Total Payment: @Model.SallaryReports.Sum(sr => sr.TotalPayment)</h4>
+<h4>Total Payed: @Model.SallaryReports.Sum(sr => sr.AmountPayed)</h4>
+<h4>Total Payment DueToPay: @Model.SallaryReports.Sum(sr => sr.DueToPay)</h4>
+<a class="btn btn-sm btn-success" asp-controller="SallaryReports" asp-action="Create">Create new Sallaryreport</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Accounting">Back to Accounting</a>
+
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SallaryReports[0].Month)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SallaryReports[0].Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SallaryReports[0].TimeWorked)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SallaryReports[0].PaymentPerHour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SallaryReports[0].TotalPayment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SallaryReports[0].Payed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SallaryReports[0].DueToPay)
+            </th>         
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.SallaryReports.OrderByDescending(sr => sr.Employee))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Month)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee.CName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeWorked)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentPerHour)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalPayment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DueToPay)
+                </td>
+                
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="SallaryReports" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="SallaryReports" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="SallaryReports" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h3>Work notes !</h3>
+<textarea id="TextArea1" rows="20" cols="150"></textarea>
