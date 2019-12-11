@@ -42,5 +42,8 @@ namespace NBSTimeReporting.Data
         public DbSet<NBSTimeReporting.Models.AccountingModels.WeeklyTimeReport> WeeklyTimeReport { get; set; }
         public DbSet<NBSTimeReporting.Models.AccountingModels.MonthlyTimeReport> MonthlyTimeReport { get; set; }
         public DbSet<NBSTimeReporting.Models.AccountingModels.SallaryReport> SallaryReport { get; set; }
+        public DbSet<NBSTimeReporting.Models.AccountingModels.TransactionType> TransactionType { get; set; }
+        public DbSet<NBSTimeReporting.Models.AccountingModels.Account> Account { get; set; }
+        public DbSet<NBSTimeReporting.Models.AccountingModels.Transaction> Transaction { get; set; }
     }
 }
