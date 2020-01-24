@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using NBSTimeReporting.Models.SettingModels;
 using NBSTimeReporting.Models.DataModels;
 using NBSTimeReporting.Models.AccountingModels;
+using NBSTimeReporting.Models.PlanningModels;
+using NBSTimeReporting.TimeReportingExternal.DataModels;
 
 namespace NBSTimeReporting.Data
 {
@@ -45,5 +47,9 @@ namespace NBSTimeReporting.Data
         public DbSet<NBSTimeReporting.Models.AccountingModels.TransactionType> TransactionType { get; set; }
         public DbSet<NBSTimeReporting.Models.AccountingModels.Account> Account { get; set; }
         public DbSet<NBSTimeReporting.Models.AccountingModels.Transaction> Transaction { get; set; }
+        public DbSet<NBSTimeReporting.Models.PlanningModels.Activity> Activity { get; set; }
+        public DbSet<NBSTimeReporting.Models.PlanningModels.ActivityStatus> ActivityStatus { get; set; }
+        public DbSet<NBSTimeReporting.Models.PlanningModels.ActivityType> ActivityType { get; set; }
+        public DbSet<NBSTimeReporting.TimeReportingExternal.DataModels.TimeReport> TimeReport { get; set; }
     }
 }

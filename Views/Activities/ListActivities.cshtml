@@ -1,0 +1,51 @@
+﻿@model NBSTimeReporting.Models.ViewModels.ActivitiesViewModel
+@{
+    ViewData["Title"] = "ListActivities";
+}
+
+<h1>Activities</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="Activities" asp-action="Create">Create new Activity</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Planner">Back to Planner</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Activities[0].ActivityStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activities[0].ActivityType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activities[0].ActivityName)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Activities.OrderBy(a => a.ActivityStatus))
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActivityStatus.ActivityStatusName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActivityType.ActivityTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActivityName)
+            </td>
+
+            <td>
+                <a class="btn btn-sm btn-success" asp-controller="Activities" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <a class="btn btn-sm btn-success" asp-controller="Activities" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                <a class="btn btn-sm btn-danger" asp-controller="Activities" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+

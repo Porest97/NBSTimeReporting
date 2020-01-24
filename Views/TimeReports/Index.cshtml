@@ -1,4 +1,4 @@
-﻿@model IEnumerable<NBSTimeReporting.Models.DataModels.Report>
+﻿@model IEnumerable<NBSTimeReporting.TimeReportingExternal.DataModels.TimeReport>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,28 +13,28 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ReportStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReportType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Employee)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Site)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Ticket)
+                @Html.DisplayNameFor(model => model.IncidentNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateTimeStarted)
+                @Html.DisplayNameFor(model => model.ShiftStarted)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateTimeEnded)
+                @Html.DisplayNameFor(model => model.ShiftEnded)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WorkHours)
+                @Html.DisplayNameFor(model => model.WorkedHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FeeHour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalFee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
             </th>
             <th></th>
         </tr>
@@ -43,28 +43,28 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ReportStatus.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReportType.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Employee.Id)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Site.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Ticket.Id)
+                @Html.DisplayFor(modelItem => item.IncidentNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateTimeStarted)
+                @Html.DisplayFor(modelItem => item.ShiftStarted)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateTimeEnded)
+                @Html.DisplayFor(modelItem => item.ShiftEnded)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.WorkHours)
+                @Html.DisplayFor(modelItem => item.WorkedHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeeHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalFee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

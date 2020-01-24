@@ -29,7 +29,7 @@
                 @Html.DisplayNameFor(model => model.Reports[0].Ticket.Site)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Reports[0].Emloyee)
+                @Html.DisplayNameFor(model => model.Reports[0].Employee)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Reports[0].DateTimeStarted)
@@ -61,7 +61,7 @@
                     @Html.DisplayFor(modelItem => item.Ticket.Site.SiteName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Emloyee.FullName)
+                    @Html.DisplayFor(modelItem => item.Employee.FullName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DateTimeStarted)

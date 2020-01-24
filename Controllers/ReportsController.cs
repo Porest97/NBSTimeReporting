@@ -24,7 +24,7 @@ namespace NBSTimeReporting.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Report
-                .Include(r => r.Emloyee)
+                .Include(r => r.Employee)
                 .Include(r => r.ReportStatus)
                 .Include(r => r.ReportType)
                 .Include(r => r.Site)
@@ -41,7 +41,7 @@ namespace NBSTimeReporting.Controllers
             var reportsViewModel = new ReportsViewModel()
             {
                 Reports = _context.Report
-                .Include(r => r.Emloyee)
+                .Include(r => r.Employee)
                 .Include(r => r.ReportStatus)
                 .Include(r => r.ReportType)
                 .Include(r => r.Site)
@@ -60,7 +60,7 @@ namespace NBSTimeReporting.Controllers
             var reportsViewModel = new ReportsViewModel()
             {
                 Reports = _context.Report
-                .Include(r => r.Emloyee)
+                .Include(r => r.Employee)
                 .Include(r => r.ReportStatus)
                 .Include(r => r.ReportType)
                 .Include(r => r.Site)
@@ -79,7 +79,7 @@ namespace NBSTimeReporting.Controllers
             var reportsViewModel = new ReportsViewModel()
             {
                 Reports = _context.Report
-                .Include(r => r.Emloyee)
+                .Include(r => r.Employee)
                 .Include(r => r.ReportStatus)
                 .Include(r => r.ReportType)
                 .Include(r => r.Site)
@@ -99,7 +99,7 @@ namespace NBSTimeReporting.Controllers
             }
 
             var report = await _context.Report
-                .Include(r => r.Emloyee)
+                .Include(r => r.Employee)
                 .Include(r => r.ReportStatus)
                 .Include(r => r.ReportType)
                 .Include(r => r.Site)                
@@ -216,7 +216,7 @@ namespace NBSTimeReporting.Controllers
             }
 
             var report = await _context.Report
-                .Include(r => r.Emloyee)
+                .Include(r => r.Employee)
                 .Include(r => r.ReportStatus)
                 .Include(r => r.ReportType)
                 .Include(r => r.Site)

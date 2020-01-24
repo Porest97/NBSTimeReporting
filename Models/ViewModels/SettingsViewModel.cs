@@ -1,5 +1,6 @@
 ﻿using NBSTimeReporting.Models.AccountingModels;
 using NBSTimeReporting.Models.DataModels;
+using NBSTimeReporting.Models.PlanningModels;
 using NBSTimeReporting.Models.SettingModels;
 using System;
 using System.Collections.Generic;
@@ -56,5 +57,11 @@ namespace NBSTimeReporting.Models.ViewModels
         //Transactions
 
         public List<TransactionType> TransactionTypes { get; internal set; }
+
+        //Activities
+        
+        public List<ActivityStatus> ActivityStatuses { get; internal set; }
+
+        public List<ActivityType> ActivityTypes { get; internal set; }
     }
 }

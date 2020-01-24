@@ -66,6 +66,12 @@ namespace NBSTimeReporting.Controllers
             return View();
         }
 
+        //#Planner
+        public IActionResult Planner()
+        {
+            return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

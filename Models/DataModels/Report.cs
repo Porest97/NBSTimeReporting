@@ -31,7 +31,7 @@ namespace NBSTimeReporting.Models.DataModels
         public int? PersonId { get; set; }
         [Display(Name = "Emloyee")]
         [ForeignKey("PersonId")]
-        public Person Emloyee { get; set; }
+        public Person Employee { get; set; }
 
         //Site
         [Display(Name = "Site")]

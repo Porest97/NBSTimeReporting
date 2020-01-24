@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NBSTimeReporting.Data;
 
 namespace NBSTimeReporting.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200115133436_ActvivitiesAdded")]
+    partial class ActvivitiesAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1198,44 +1200,6 @@ namespace NBSTimeReporting.Data.Migrations
                     b.ToTable("TicketType");
                 });
 
-            modelBuilder.Entity("NBSTimeReporting.TimeReportingExternal.DataModels.TimeReport", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<double>("FeeHour")
-                        .HasColumnType("float");
-
-                    b.Property<string>("IncidentNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Notes")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ShiftEnded")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("ShiftStarted")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("SiteId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("TotalFee")
-                        .HasColumnType("float");
-
-                    b.Property<double>("WorkedHours")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SiteId");
-
-                    b.ToTable("TimeReport");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -1398,7 +1362,7 @@ namespace NBSTimeReporting.Data.Migrations
 
             modelBuilder.Entity("NBSTimeReporting.Models.DataModels.Report", b =>
                 {
-                    b.HasOne("NBSTimeReporting.Models.DataModels.Person", "Employee")
+                    b.HasOne("NBSTimeReporting.Models.DataModels.Person", "Emloyee")
                         .WithMany()
                         .HasForeignKey("PersonId");
 
@@ -1501,13 +1465,6 @@ namespace NBSTimeReporting.Data.Migrations
                     b.HasOne("NBSTimeReporting.Models.PlanningModels.ActivityType", "ActivityType")
                         .WithMany()
                         .HasForeignKey("ActivityTypeId");
-                });
-
-            modelBuilder.Entity("NBSTimeReporting.TimeReportingExternal.DataModels.TimeReport", b =>
-                {
-                    b.HasOne("NBSTimeReporting.Models.DataModels.Site", "Site")
-                        .WithMany()
-                        .HasForeignKey("SiteId");
                 });
 #pragma warning restore 612, 618
         }

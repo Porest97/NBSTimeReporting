@@ -8,14 +8,13 @@ namespace NBSTimeReporting.Models.DataModels
     {
         public int Id { get; set; }
 
-        // Club props !
+        // Company props !
         [Display(Name = "#")]
         public string CompanyNumber { get; set; }
 
         [Display(Name = "Company")]
         public string CompanyName { get; set; }
-
-        
+               
 
         [Display(Name = "Streetaddress")]
         public string StreetAddress { get; set; }

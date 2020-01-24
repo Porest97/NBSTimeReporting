@@ -1,0 +1,37 @@
+﻿@model NBSTimeReporting.Models.ViewModels.SettingsViewModel
+@{
+    ViewData["Title"] = "ListActivityTypes";
+}
+
+<h1>Activity Types</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="ActivityTypes" asp-action="Create">Create new Type</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Planner">Back to Planner</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ActivityTypes[0].ActivityTypeName)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ActivityTypes.OrderBy(a => a.ActivityTypeName))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActivityTypeName)
+                </td>
+
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="ActivityTypes" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="ActivityTypes" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="ActivityTypes" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
