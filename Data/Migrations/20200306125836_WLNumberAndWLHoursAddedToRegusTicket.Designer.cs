@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NBSTimeReporting.Data;
 
 namespace NBSTimeReporting.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200306125836_WLNumberAndWLHoursAddedToRegusTicket")]
+    partial class WLNumberAndWLHoursAddedToRegusTicket
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -361,8 +363,8 @@ namespace NBSTimeReporting.Data.Migrations
                     b.Property<int?>("TicketTypeId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("WLHours")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("WLHours")
+                        .HasColumnType("float");
 
                     b.Property<string>("WLNumber")
                         .HasColumnType("nvarchar(max)");

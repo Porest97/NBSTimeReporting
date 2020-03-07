@@ -8,6 +8,9 @@ using NBSTimeReporting.Models.DataModels;
 using NBSTimeReporting.Models.AccountingModels;
 using NBSTimeReporting.Models.PlanningModels;
 using NBSTimeReporting.TimeReportingExternal.DataModels;
+using NBSTimeReporting.Offering.DataModels;
+using NBSTimeReporting.Assets.DataModels;
+using NBSTimeReporting.DWorkin.Regus.DataModels;
 
 namespace NBSTimeReporting.Data
 {
@@ -51,5 +54,8 @@ namespace NBSTimeReporting.Data
         public DbSet<NBSTimeReporting.Models.PlanningModels.ActivityStatus> ActivityStatus { get; set; }
         public DbSet<NBSTimeReporting.Models.PlanningModels.ActivityType> ActivityType { get; set; }
         public DbSet<NBSTimeReporting.TimeReportingExternal.DataModels.TimeReport> TimeReport { get; set; }
+        public DbSet<NBSTimeReporting.Offering.DataModels.Offer> Offer { get; set; }
+        public DbSet<NBSTimeReporting.Assets.DataModels.Asset> Asset { get; set; }
+        public DbSet<NBSTimeReporting.DWorkin.Regus.DataModels.RegusTicket> RegusTicket { get; set; }
     }
 }

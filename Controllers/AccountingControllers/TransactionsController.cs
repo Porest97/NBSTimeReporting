@@ -105,7 +105,7 @@ namespace NBSTimeReporting.Controllers.AccountingControllers
             {
                 _context.Add(transaction);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(ListTransactions));
+                return RedirectToAction(nameof(ListTransactionsAccountEva));
             }
             ViewData["AccountId"] = new SelectList(_context.Account, "Id", "AccountName", transaction.AccountId);
             ViewData["TransactionTypeId"] = new SelectList(_context.TransactionType, "Id", "TransactionTypeName", transaction.TransactionTypeId);
@@ -160,7 +160,7 @@ namespace NBSTimeReporting.Controllers.AccountingControllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(ListTransactions));
+                return RedirectToAction(nameof(ListTransactionsAccountEva));
             }
             ViewData["AccountId"] = new SelectList(_context.Account, "Id", "AccountName", transaction.AccountId);
             ViewData["TransactionTypeId"] = new SelectList(_context.TransactionType, "Id", "TransactionTypeName", transaction.TransactionTypeId);
@@ -195,7 +195,7 @@ namespace NBSTimeReporting.Controllers.AccountingControllers
             var transaction = await _context.Transaction.FindAsync(id);
             _context.Transaction.Remove(transaction);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(ListTransactions));
+            return RedirectToAction(nameof(ListTransactionsAccountEva));
         }
 
         private bool TransactionExists(int id)

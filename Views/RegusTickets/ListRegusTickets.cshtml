@@ -1,0 +1,89 @@
+﻿@model NBSTimeReporting.DWorkin.Regus.ViewModels.RegusTicketsViewModel
+@{
+    ViewData["Title"] = "ListRegusTickets";
+}
+
+<h1>Regus Tickets</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="RegusTickets" asp-action="Create">Create new TICKET</a>
+<a class="btn btn-sm btn-success" asp-controller="RegusTickets" asp-action="ListTicketsSolved">To Solved Tickets</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Regus">Back to Regus</a>
+
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RegusTickets[0].IncidentNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegusTickets[0].TicketPriority)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegusTickets[0].Site)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegusTickets[0].TicketType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegusTickets[0].TicketStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegusTickets[0].FEScheduled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegusTickets[0].FEAssigned)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegusTickets[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegusTickets[0].Logg)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.RegusTickets.OrderByDescending(t => t.FEScheduled))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IncidentNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TicketPriority.TicketPriorityName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Site.NoSite)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TicketType.TicketTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TicketStatus.TicketStatusName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FEScheduled)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FEAssigned.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Logg)
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="RegusTickets" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="RegusTickets" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="RegusTickets" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h3>Work notes !</h3>
+<textarea id="TextArea1" rows="20" cols="150"></textarea>
+

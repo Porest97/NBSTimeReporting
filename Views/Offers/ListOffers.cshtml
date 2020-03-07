@@ -1,0 +1,68 @@
+﻿@model NBSTimeReporting.Offering.ViewModels.OffersViewModel
+@{
+    ViewData["Title"] = "ListOffers";
+}
+
+<h1>Offers</h1>
+<a class="btn btn-sm btn-success" asp-controller="Offers" asp-action="Create">Create new offer</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Accounting">Back to Accounting</a>
+
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Offers[0].Site)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Offers[0].Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Offers[0].DateTimeOffered)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Offers[0].DateTimeScheduledStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Offers[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Offers[0].TotalOfferAmount)
+            </th>
+            
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Offers.OrderBy(o => o.DateTimeOffered))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Site.SiteName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTimeOffered)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTimeScheduledStart)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalOfferAmount)
+                </td>
+                
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="Offers" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="Offers" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="Offers" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

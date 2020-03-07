@@ -27,7 +27,8 @@ namespace NBSTimeReporting.Controllers
             var applicationDbContext = _context.Company
                 .Include(c => c.CompanyRole)
                 .Include(c => c.CompanyStatus)
-                .Include(c => c.CompanyType);
+                .Include(c => c.CompanyType)
+                .Include(c => c.CompanyContact);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -41,6 +42,7 @@ namespace NBSTimeReporting.Controllers
                 .Include(c => c.CompanyRole)
                 .Include(c => c.CompanyStatus)
                 .Include(c => c.CompanyType)
+                .Include(c => c.CompanyContact)
                 .ToList()
             };
             return View(companiesViewModel);
@@ -58,6 +60,7 @@ namespace NBSTimeReporting.Controllers
                 .Include(c => c.CompanyRole)
                 .Include(c => c.CompanyStatus)
                 .Include(c => c.CompanyType)
+                .Include(c => c.CompanyContact)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (company == null)
             {
@@ -73,6 +76,7 @@ namespace NBSTimeReporting.Controllers
             ViewData["CompanyRoleId"] = new SelectList(_context.CompanyRole, "Id", "CompanyRoleName");
             ViewData["CompanyStatusId"] = new SelectList(_context.CompanyStatus, "Id", "CompanyStatusName");
             ViewData["CompanyTypeId"] = new SelectList(_context.CompanyType, "Id", "CompanyTypeName");
+            ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName");
             return View();
         }
 
@@ -81,7 +85,7 @@ namespace NBSTimeReporting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CompanyNumber,CompanyName,StreetAddress,ZipCode,City,Country,CompanyRoleId,CompanyStatusId,CompanyTypeId")] Company company)
+        public async Task<IActionResult> Create([Bind("Id,CompanyNumber,CompanyName,StreetAddress,ZipCode,City,Country,PersonId,CompanyRoleId,CompanyStatusId,CompanyTypeId")] Company company)
         {
             if (ModelState.IsValid)
             {
@@ -92,6 +96,7 @@ namespace NBSTimeReporting.Controllers
             ViewData["CompanyRoleId"] = new SelectList(_context.CompanyRole, "Id", "CompanyRoleName", company.CompanyRoleId);
             ViewData["CompanyStatusId"] = new SelectList(_context.CompanyStatus, "Id", "CompanyStatusName", company.CompanyStatusId);
             ViewData["CompanyTypeId"] = new SelectList(_context.CompanyType, "Id", "CompanyTypeName", company.CompanyTypeId);
+            ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", company.PersonId);
             return View(company);
         }
 
@@ -111,6 +116,7 @@ namespace NBSTimeReporting.Controllers
             ViewData["CompanyRoleId"] = new SelectList(_context.CompanyRole, "Id", "CompanyRoleName", company.CompanyRoleId);
             ViewData["CompanyStatusId"] = new SelectList(_context.CompanyStatus, "Id", "CompanyStatusName", company.CompanyStatusId);
             ViewData["CompanyTypeId"] = new SelectList(_context.CompanyType, "Id", "CompanyTypeName", company.CompanyTypeId);
+            ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", company.PersonId);
             return View(company);
         }
 
@@ -119,7 +125,7 @@ namespace NBSTimeReporting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CompanyNumber,CompanyName,StreetAddress,ZipCode,City,Country,CompanyRoleId,CompanyStatusId,CompanyTypeId")] Company company)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,CompanyNumber,CompanyName,StreetAddress,ZipCode,City,Country,PersonId,CompanyRoleId,CompanyStatusId,CompanyTypeId")] Company company)
         {
             if (id != company.Id)
             {
@@ -149,6 +155,7 @@ namespace NBSTimeReporting.Controllers
             ViewData["CompanyRoleId"] = new SelectList(_context.CompanyRole, "Id", "CompanyRoleName", company.CompanyRoleId);
             ViewData["CompanyStatusId"] = new SelectList(_context.CompanyStatus, "Id", "CompanyStatusName", company.CompanyStatusId);
             ViewData["CompanyTypeId"] = new SelectList(_context.CompanyType, "Id", "CompanyTypeName", company.CompanyTypeId);
+            ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", company.PersonId);
             return View(company);
         }
 
@@ -164,6 +171,7 @@ namespace NBSTimeReporting.Controllers
                 .Include(c => c.CompanyRole)
                 .Include(c => c.CompanyStatus)
                 .Include(c => c.CompanyType)
+                .Include(c => c.CompanyContact)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (company == null)
             {

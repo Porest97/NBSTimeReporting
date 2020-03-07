@@ -1,0 +1,108 @@
+﻿@model IEnumerable<NBSTimeReporting.Offering.DataModels.Offer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeOffered)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Site)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TicketNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeScheduledStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeScheduledEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoursOnSite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PricePerHour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KostHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KostMtrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Riskfaktor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalOfferAmount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeOffered)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Site.SiteName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TicketNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeScheduledStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeScheduledEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoursOnSite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PricePerHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KostHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KostMtrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Riskfaktor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalOfferAmount)
+            </td>
+            <td>
+                <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <a class="btn tbn-sm btn-success" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                <a class="btn tbn-sm btn-success" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a class="btn tbn-sm btn-success" asp-action="ListOffers">Back to Offers</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

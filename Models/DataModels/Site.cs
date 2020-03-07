@@ -34,6 +34,9 @@ namespace NBSTimeReporting.Models.DataModels
         [Display(Name = "Address")]
         public string Address { get { return string.Format("{0} {1} {2}", StreetAddress, ZipCode, City); } }
 
+        [Display(Name = "No - Site")]
+        public string NoSite { get { return string.Format("{0} {1} {2}", SiteNumber, "-", SiteName); } }
+
         [Display(Name = "NO Floors")]
         public string NumberOfFloors { get; set; }
 

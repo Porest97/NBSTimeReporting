@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NBSTimeReporting.Data;
 
 namespace NBSTimeReporting.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200211105233_CCAddedInCompany")]
+    partial class CCAddedInCompany
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -217,173 +219,6 @@ namespace NBSTimeReporting.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("NBSTimeReporting.Assets.DataModels.Asset", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("AssetBrandId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AssetTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Connectivity")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Ethernet1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Ethernet1LLDP")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LocalIP")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MACAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Model")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SerialNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("SiteId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AssetBrandId");
-
-                    b.HasIndex("AssetTypeId");
-
-                    b.HasIndex("SiteId");
-
-                    b.ToTable("Asset");
-                });
-
-            modelBuilder.Entity("NBSTimeReporting.Assets.DataModels.AssetBrand", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AssetBrandName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AssetBrand");
-                });
-
-            modelBuilder.Entity("NBSTimeReporting.Assets.DataModels.AssetType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AssetTypeName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AssetType");
-                });
-
-            modelBuilder.Entity("NBSTimeReporting.DWorkin.Regus.DataModels.RegusTicket", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime?>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("FEEExitsSite")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("FEEntersSite")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("FEScheduled")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("IncidentNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("IssueResolved")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Logg")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("PersonId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PersonId1")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PersonId2")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("Received")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("RegusTicketNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Resolution")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("SiteId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TicketPriorityId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TicketStatusId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TicketTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("WLHours")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("WLNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PersonId");
-
-                    b.HasIndex("PersonId1");
-
-                    b.HasIndex("PersonId2");
-
-                    b.HasIndex("SiteId");
-
-                    b.HasIndex("TicketPriorityId");
-
-                    b.HasIndex("TicketStatusId");
-
-                    b.HasIndex("TicketTypeId");
-
-                    b.ToTable("RegusTicket");
                 });
 
             modelBuilder.Entity("NBSTimeReporting.Models.AccountingModels.Account", b =>
@@ -1372,61 +1207,6 @@ namespace NBSTimeReporting.Data.Migrations
                     b.ToTable("TicketType");
                 });
 
-            modelBuilder.Entity("NBSTimeReporting.Offering.DataModels.Offer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime?>("DateTimeOffered")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DateTimeScheduledEnd")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DateTimeScheduledStart")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("HoursOnSite")
-                        .HasColumnType("float");
-
-                    b.Property<double>("KostHours")
-                        .HasColumnType("float");
-
-                    b.Property<double>("KostMtrl")
-                        .HasColumnType("float");
-
-                    b.Property<int?>("PersonId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("PricePerHour")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Riskfaktor")
-                        .HasColumnType("float");
-
-                    b.Property<int?>("SiteId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TicketNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("TotalOfferAmount")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PersonId");
-
-                    b.HasIndex("SiteId");
-
-                    b.ToTable("Offer");
-                });
-
             modelBuilder.Entity("NBSTimeReporting.TimeReportingExternal.DataModels.TimeReport", b =>
                 {
                     b.Property<int>("Id")
@@ -1514,52 +1294,6 @@ namespace NBSTimeReporting.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("NBSTimeReporting.Assets.DataModels.Asset", b =>
-                {
-                    b.HasOne("NBSTimeReporting.Assets.DataModels.AssetBrand", "AssetBrand")
-                        .WithMany()
-                        .HasForeignKey("AssetBrandId");
-
-                    b.HasOne("NBSTimeReporting.Assets.DataModels.AssetType", "AssetType")
-                        .WithMany()
-                        .HasForeignKey("AssetTypeId");
-
-                    b.HasOne("NBSTimeReporting.Models.DataModels.Site", "Site")
-                        .WithMany()
-                        .HasForeignKey("SiteId");
-                });
-
-            modelBuilder.Entity("NBSTimeReporting.DWorkin.Regus.DataModels.RegusTicket", b =>
-                {
-                    b.HasOne("NBSTimeReporting.Models.DataModels.Person", "Creator")
-                        .WithMany()
-                        .HasForeignKey("PersonId");
-
-                    b.HasOne("NBSTimeReporting.Models.DataModels.Person", "Receiver")
-                        .WithMany()
-                        .HasForeignKey("PersonId1");
-
-                    b.HasOne("NBSTimeReporting.Models.DataModels.Person", "FEAssigned")
-                        .WithMany()
-                        .HasForeignKey("PersonId2");
-
-                    b.HasOne("NBSTimeReporting.Models.DataModels.Site", "Site")
-                        .WithMany()
-                        .HasForeignKey("SiteId");
-
-                    b.HasOne("NBSTimeReporting.Models.SettingModels.TicketPriority", "TicketPriority")
-                        .WithMany()
-                        .HasForeignKey("TicketPriorityId");
-
-                    b.HasOne("NBSTimeReporting.Models.SettingModels.TicketStatus", "TicketStatus")
-                        .WithMany()
-                        .HasForeignKey("TicketStatusId");
-
-                    b.HasOne("NBSTimeReporting.Models.SettingModels.TicketType", "TicketType")
-                        .WithMany()
-                        .HasForeignKey("TicketTypeId");
                 });
 
             modelBuilder.Entity("NBSTimeReporting.Models.AccountingModels.EmployeeAccount", b =>
@@ -1780,17 +1514,6 @@ namespace NBSTimeReporting.Data.Migrations
                     b.HasOne("NBSTimeReporting.Models.PlanningModels.ActivityType", "ActivityType")
                         .WithMany()
                         .HasForeignKey("ActivityTypeId");
-                });
-
-            modelBuilder.Entity("NBSTimeReporting.Offering.DataModels.Offer", b =>
-                {
-                    b.HasOne("NBSTimeReporting.Models.DataModels.Person", "Employee")
-                        .WithMany()
-                        .HasForeignKey("PersonId");
-
-                    b.HasOne("NBSTimeReporting.Models.DataModels.Site", "Site")
-                        .WithMany()
-                        .HasForeignKey("SiteId");
                 });
 
             modelBuilder.Entity("NBSTimeReporting.TimeReportingExternal.DataModels.TimeReport", b =>

@@ -34,6 +34,12 @@ namespace NBSTimeReporting.Controllers
             return View();
         }
 
+        //#Assets
+        public IActionResult Assets()
+        {
+            return View();
+        }
+
         public IActionResult Companies()
         {
             return View();
@@ -71,7 +77,21 @@ namespace NBSTimeReporting.Controllers
         {
             return View();
         }
+        //#DWorkin
+        public IActionResult DWorkin()
+        {
+            return View();
+        }
 
+        public IActionResult Regus()
+        {
+            return View();
+        }
+
+        public IActionResult Biogen()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

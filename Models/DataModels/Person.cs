@@ -75,6 +75,7 @@ namespace NBSTimeReporting.Models.DataModels
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber2 { get; set; }
 
+        [Display(Name = "Phone #")]
         public string PhoneNumbers { get { return string.Format("{0} {1} ", PhoneNumber1, PhoneNumber2); } }
 
         [Display(Name = "Email")]
