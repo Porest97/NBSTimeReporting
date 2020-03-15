@@ -1,0 +1,111 @@
+﻿@model NBSTimeReporting.DWorkin.Models.DataModels.DWWorkLog
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>DWWorkLog</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="WLNumber" class="control-label"></label>
+                <input asp-for="WLNumber" class="form-control" />
+                <span asp-validation-for="WLNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="State" class="control-label"></label>
+                <input asp-for="State" class="form-control" />
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Technician" class="control-label"></label>
+                <select asp-for="PersonId" class="form-control" asp-items="ViewBag.PersonId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateFrom" class="control-label"></label>
+                <input asp-for="DateFrom" class="form-control" />
+                <span asp-validation-for="DateFrom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTo" class="control-label"></label>
+                <input asp-for="DateTo" class="form-control" />
+                <span asp-validation-for="DateTo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BusUnit" class="control-label"></label>
+                <input asp-for="BusUnit" class="form-control" />
+                <span asp-validation-for="BusUnit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company" class="control-label"></label>
+                <select asp-for="CompanyId" class="form-control" asp-items="ViewBag.CompanyId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Site" class="control-label"></label>
+                <select asp-for="SiteId" class="form-control" asp-items="ViewBag.SiteId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalHours" class="control-label"></label>
+                <input asp-for="TotalHours" class="form-control" />
+                <span asp-validation-for="TotalHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DayOffHours" class="control-label"></label>
+                <input asp-for="DayOffHours" class="form-control" />
+                <span asp-validation-for="DayOffHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToInvoiceHours" class="control-label"></label>
+                <input asp-for="ToInvoiceHours" class="form-control" />
+                <span asp-validation-for="ToInvoiceHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OBH" class="control-label"></label>
+                <input asp-for="OBH" class="form-control" />
+                <span asp-validation-for="OBH" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WH" class="control-label"></label>
+                <input asp-for="WH" class="form-control" />
+                <span asp-validation-for="WH" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WSatisfactionHours" class="control-label"></label>
+                <input asp-for="WSatisfactionHours" class="form-control" />
+                <span asp-validation-for="WSatisfactionHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Coefficient" class="control-label"></label>
+                <input asp-for="Coefficient" class="form-control" />
+                <span asp-validation-for="Coefficient" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DWWLStatus" class="control-label"></label>
+                <select asp-for="DWWLSatusId" class="form-control" asp-items="ViewBag.DWWLStatusId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,80 @@
+﻿@model NBSTimeReporting.DWorkin.Models.ViewModels.DWWorkLogViewModel
+@{
+    ViewData["Title"] = "ListDWWorkLogs";
+}
+
+<h1>Dworkin Work Logs (WL) </h1>
+
+<a class="btn btn-sm btn-success" asp-controller="DWWOrkLogs" asp-action="Create">Create new Dworkin WL</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="DWorkin">Back to Dworkin</a>
+
+<div class="badge">
+    <table class="table table-responsive-sm table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DWWorkLogs[0].WLNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DWWorkLogs[0].Company)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DWWorkLogs[0].Site)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DWWorkLogs[0].DateFrom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DWWorkLogs[0].DateTo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DWWorkLogs[0].Technician)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DWWorkLogs[0].State)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DWWorkLogs[0].DWWLStatus)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.DWWorkLogs.OrderBy(dw => dw.WLNumber))
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WLNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Site.NoSite)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateFrom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Technician.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DWWLStatus.DWWLStatusName)
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="DWWOrkLogs" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="DWWOrkLogs" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="DWWOrkLogs" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,25 @@
+﻿@model NBSTimeReporting.DWorkin.Models.DataModels.DWWLStatus
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<div class="badge">
+    <div>
+        <h4>DWWLStatus</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DWWLStatusName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DWWLStatusName)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+        <a class="btn btn-sm btn-success" asp-action="ListDWWLStatuses">Back to Dworkin WL Statuses</a>
+    </div>
+</div>

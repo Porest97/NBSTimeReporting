@@ -33,10 +33,10 @@ namespace NBSTimeReporting.Models.DataModels
         public string Address { get { return string.Format("{0} {1} {2}", StreetAddress, ZipCode, City); } }
 
         //Company Settings
-        public int? PersonId { get; set; }
-        [Display(Name = "Contact")]
-        [ForeignKey("PersonId")]
-        public Person CompanyContact { get; set; }
+        //public int? PersonId { get; set; }
+        //[Display(Name = "Contact")]
+        //[ForeignKey("PersonId")]
+        //public Person CompanyContact { get; set; }
 
         //Company Settings
         public int? CompanyRoleId { get; set; }

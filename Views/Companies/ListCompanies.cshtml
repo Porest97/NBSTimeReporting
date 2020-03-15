@@ -20,16 +20,7 @@
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Companies[0].Country)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Companies[0].CompanyContact)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Companies[0].CompanyContact.PhoneNumbers)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Companies[0].CompanyContact.Email)
-                    </th>
+                    </th>                         
                     <th>
                         @Html.DisplayNameFor(model => model.Companies[0].CompanyRole)
                     </th>
@@ -55,16 +46,7 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Country)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CompanyContact.FullName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CompanyContact.PhoneNumbers)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CompanyContact.Email)
-                        </td>
+                        </td>                       
                         <td>
                             @Html.DisplayFor(modelItem => item.CompanyRole.CompanyRoleName)
                         </td>

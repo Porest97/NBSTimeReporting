@@ -19,9 +19,6 @@
 
 
   <ItemGroup>
-    <Folder Include="DWorkin\Biogen\Controllers\" />
-    <Folder Include="DWorkin\Biogen\DataModels\" />
-    <Folder Include="DWorkin\Biogen\ViewModels\" />
     <Folder Include="TimeReportingExternal\ViewModels\" />
     <Folder Include="wwwroot\img\" />
   </ItemGroup>

@@ -1,0 +1,139 @@
+﻿@model IEnumerable<NBSTimeReporting.DWorkin.Models.DataModels.DWWorkLog>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-sm btn-success" asp-action="Create">Create New DWWork log</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DWWLStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WLNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Technician)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusUnit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Site)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DayOffHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToInvoiceHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OBH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WSatisfactionHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Coefficient)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DWWLStatus.DWWLStatusName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WLNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Technician.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusUnit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Site.NoSite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DayOffHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToInvoiceHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OBH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WSatisfactionHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coefficient)
+            </td>
+
+            <td>
+                <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <a class="btn btn-sm btn-success" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                <a class="btn btn-sm btn-success" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

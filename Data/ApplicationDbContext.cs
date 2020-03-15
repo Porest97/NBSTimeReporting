@@ -11,6 +11,7 @@ using NBSTimeReporting.TimeReportingExternal.DataModels;
 using NBSTimeReporting.Offering.DataModels;
 using NBSTimeReporting.Assets.DataModels;
 using NBSTimeReporting.DWorkin.Regus.DataModels;
+using NBSTimeReporting.DWorkin.Models.DataModels;
 
 namespace NBSTimeReporting.Data
 {
@@ -57,5 +58,7 @@ namespace NBSTimeReporting.Data
         public DbSet<NBSTimeReporting.Offering.DataModels.Offer> Offer { get; set; }
         public DbSet<NBSTimeReporting.Assets.DataModels.Asset> Asset { get; set; }
         public DbSet<NBSTimeReporting.DWorkin.Regus.DataModels.RegusTicket> RegusTicket { get; set; }
+        public DbSet<NBSTimeReporting.DWorkin.Models.DataModels.DWWorkLog> DWWorkLog { get; set; }
+        public DbSet<NBSTimeReporting.DWorkin.Models.DataModels.DWWLStatus> DWWLStatus { get; set; }
     }
 }
