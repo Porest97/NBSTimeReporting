@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NBSTimeReporting.Data;
 
-namespace NBSTimeReporting.Data.Migrations
+namespace NBSTimeReporting.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200301224411_AssetsAdded")]
-    partial class AssetsAdded
+    [Migration("20200315033210_SatusIdToStatusId")]
+    partial class SatusIdToStatusId
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -246,6 +246,9 @@ namespace NBSTimeReporting.Data.Migrations
                     b.Property<string>("LocalIP")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("MACAddress")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Model")
                         .HasColumnType("nvarchar(max)");
 
@@ -297,6 +300,181 @@ namespace NBSTimeReporting.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AssetType");
+                });
+
+            modelBuilder.Entity("NBSTimeReporting.DWorkin.Models.DataModels.DWWLStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("DWWLStatusName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DWWLStatus");
+                });
+
+            modelBuilder.Entity("NBSTimeReporting.DWorkin.Models.DataModels.DWWorkLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BusUnit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Coefficient")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("CompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DWWLStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateTo")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("DayOffHours")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("OBH")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("PersonId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SiteId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("ToInvoiceHours")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalHours")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("WH")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("WLNumber")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("WSatisfactionHours")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
+
+                    b.HasIndex("DWWLStatusId");
+
+                    b.HasIndex("PersonId");
+
+                    b.HasIndex("SiteId");
+
+                    b.ToTable("DWWorkLog");
+                });
+
+            modelBuilder.Entity("NBSTimeReporting.DWorkin.Regus.DataModels.RegusTicket", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("FEEExitsSite")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FEEntersSite")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FEScheduled")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("IncidentNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("IssueResolved")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Logg")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PersonId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PersonId1")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PersonId2")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Received")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RegusTicketNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Resolution")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("SiteId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TicketPriorityId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TicketStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TicketTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("WLHours")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("WLNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonId");
+
+                    b.HasIndex("PersonId1");
+
+                    b.HasIndex("PersonId2");
+
+                    b.HasIndex("SiteId");
+
+                    b.HasIndex("TicketPriorityId");
+
+                    b.HasIndex("TicketStatusId");
+
+                    b.HasIndex("TicketTypeId");
+
+                    b.ToTable("RegusTicket");
                 });
 
             modelBuilder.Entity("NBSTimeReporting.Models.AccountingModels.Account", b =>
@@ -631,9 +809,6 @@ namespace NBSTimeReporting.Data.Migrations
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PersonId")
-                        .HasColumnType("int");
-
                     b.Property<string>("StreetAddress")
                         .HasColumnType("nvarchar(max)");
 
@@ -647,10 +822,6 @@ namespace NBSTimeReporting.Data.Migrations
                     b.HasIndex("CompanyStatusId");
 
                     b.HasIndex("CompanyTypeId");
-
-                    b.HasIndex("PersonId")
-                        .IsUnique()
-                        .HasFilter("[PersonId] IS NOT NULL");
 
                     b.ToTable("Company");
                 });
@@ -1444,6 +1615,56 @@ namespace NBSTimeReporting.Data.Migrations
                         .HasForeignKey("SiteId");
                 });
 
+            modelBuilder.Entity("NBSTimeReporting.DWorkin.Models.DataModels.DWWorkLog", b =>
+                {
+                    b.HasOne("NBSTimeReporting.Models.DataModels.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId");
+
+                    b.HasOne("NBSTimeReporting.DWorkin.Models.DataModels.DWWLStatus", "DWWLStatus")
+                        .WithMany()
+                        .HasForeignKey("DWWLStatusId");
+
+                    b.HasOne("NBSTimeReporting.Models.DataModels.Person", "Technician")
+                        .WithMany()
+                        .HasForeignKey("PersonId");
+
+                    b.HasOne("NBSTimeReporting.Models.DataModels.Site", "Site")
+                        .WithMany()
+                        .HasForeignKey("SiteId");
+                });
+
+            modelBuilder.Entity("NBSTimeReporting.DWorkin.Regus.DataModels.RegusTicket", b =>
+                {
+                    b.HasOne("NBSTimeReporting.Models.DataModels.Person", "Creator")
+                        .WithMany()
+                        .HasForeignKey("PersonId");
+
+                    b.HasOne("NBSTimeReporting.Models.DataModels.Person", "Receiver")
+                        .WithMany()
+                        .HasForeignKey("PersonId1");
+
+                    b.HasOne("NBSTimeReporting.Models.DataModels.Person", "FEAssigned")
+                        .WithMany()
+                        .HasForeignKey("PersonId2");
+
+                    b.HasOne("NBSTimeReporting.Models.DataModels.Site", "Site")
+                        .WithMany()
+                        .HasForeignKey("SiteId");
+
+                    b.HasOne("NBSTimeReporting.Models.SettingModels.TicketPriority", "TicketPriority")
+                        .WithMany()
+                        .HasForeignKey("TicketPriorityId");
+
+                    b.HasOne("NBSTimeReporting.Models.SettingModels.TicketStatus", "TicketStatus")
+                        .WithMany()
+                        .HasForeignKey("TicketStatusId");
+
+                    b.HasOne("NBSTimeReporting.Models.SettingModels.TicketType", "TicketType")
+                        .WithMany()
+                        .HasForeignKey("TicketTypeId");
+                });
+
             modelBuilder.Entity("NBSTimeReporting.Models.AccountingModels.EmployeeAccount", b =>
                 {
                     b.HasOne("NBSTimeReporting.Models.SettingModels.AccountStatus", "AccountStatus")
@@ -1532,10 +1753,6 @@ namespace NBSTimeReporting.Data.Migrations
                     b.HasOne("NBSTimeReporting.Models.SettingModels.CompanyType", "CompanyType")
                         .WithMany()
                         .HasForeignKey("CompanyTypeId");
-
-                    b.HasOne("NBSTimeReporting.Models.DataModels.Person", "CompanyContact")
-                        .WithOne()
-                        .HasForeignKey("NBSTimeReporting.Models.DataModels.Company", "PersonId");
                 });
 
             modelBuilder.Entity("NBSTimeReporting.Models.DataModels.Person", b =>

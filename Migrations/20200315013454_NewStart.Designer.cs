@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NBSTimeReporting.Data;
 
-namespace NBSTimeReporting.Data.Migrations
+namespace NBSTimeReporting.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200315011624_StatusesAddedToWL")]
-    partial class StatusesAddedToWL
+    [Migration("20200315013454_NewStart")]
+    partial class NewStart
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

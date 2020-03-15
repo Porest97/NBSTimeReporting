@@ -13,6 +13,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Sites[0].Id)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Sites[0].SiteNumber)
             </th>
             <th>
@@ -41,6 +44,9 @@
         @foreach (var item in Model.Sites.OrderBy(p => p.SiteNumber))
         {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SiteNumber)
             </td>

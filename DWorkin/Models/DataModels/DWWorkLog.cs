@@ -77,7 +77,7 @@ namespace NBSTimeReporting.DWorkin.Models.DataModels
         public decimal Coefficient { get; set; }
 
         // DWorkin WL Status !
-        public int? DWWLSatusId { get; set; }
+        public int? DWWLStatusId { get; set; }
         [Display(Name = "Dworkin WL Status")]
         [ForeignKey("DWWLStatusId")]
         public DWWLStatus DWWLStatus { get; set; }

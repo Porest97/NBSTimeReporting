@@ -31,9 +31,25 @@ namespace NBSTimeReporting.DWorkin.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        //List All WLs !
         public IActionResult ListDWWorkLogs()
         {
 
+            var dWWorklogViewModel = new DWWorkLogViewModel()
+            {
+                DWWorkLogs = _context.DWWorkLog
+                .Include(d => d.Company)                
+                .Include(d => d.Site)
+                .Include(d => d.Technician)
+                .Include(d => d.DWWLStatus)
+                .ToList()
+            };
+            return View(dWWorklogViewModel);
+        }
+
+        //List All WLs !
+        public IActionResult ListDWWorkLogsIWG()
+        {
 
             var dWWorklogViewModel = new DWWorkLogViewModel()
             {
@@ -41,7 +57,7 @@ namespace NBSTimeReporting.DWorkin.Controllers
                 .Include(d => d.Company)
                 .Include(d => d.Site)
                 .Include(d => d.Technician)
-                .Include(d => d.DWWLStatus)
+                .Include(d => d.DWWLStatus).Where(d => d.CompanyId == 8)
                 .ToList()
             };
             return View(dWWorklogViewModel);
@@ -73,7 +89,7 @@ namespace NBSTimeReporting.DWorkin.Controllers
         public IActionResult Create()
         {
             ViewData["CompanyId"] = new SelectList(_context.Company, "Id", "CompanyName");
-            ViewData["SiteId"] = new SelectList(_context.Site, "Id", "NOSite");
+            ViewData["SiteId"] = new SelectList(_context.Site, "Id", "NoSite");
             ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName");
             ViewData["DWWLStatusId"] = new SelectList(_context.DWWLStatus, "Id", "DWWLStatusName");
             return View();
@@ -84,7 +100,7 @@ namespace NBSTimeReporting.DWorkin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,WLNumber,Type,State,PersonId,DateFrom,DateTo,BusUnit,CompanyId,SiteId,Subject,TotalHours,DayOffHours,ToInvoiceHours,OBH,WH,WSatisfactionHours,Coefficient,DWWLStatus")] DWWorkLog dWWorkLog)
+        public async Task<IActionResult> Create([Bind("Id,WLNumber,Type,State,PersonId,DateFrom,DateTo,BusUnit,CompanyId,SiteId,Subject,TotalHours,DayOffHours,ToInvoiceHours,OBH,WH,WSatisfactionHours,Coefficient,DWWLStatusId")] DWWorkLog dWWorkLog)
         {
             if (ModelState.IsValid)
             {
@@ -93,9 +109,9 @@ namespace NBSTimeReporting.DWorkin.Controllers
                 return RedirectToAction(nameof(ListDWWorkLogs));
             }
             ViewData["CompanyId"] = new SelectList(_context.Company, "Id", "CompanyName", dWWorkLog.CompanyId);
-            ViewData["SiteId"] = new SelectList(_context.Site, "Id", "NOSite", dWWorkLog.SiteId);
+            ViewData["SiteId"] = new SelectList(_context.Site, "Id", "NoSite", dWWorkLog.SiteId);
             ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", dWWorkLog.PersonId);
-            ViewData["DWWLStatusId"] = new SelectList(_context.DWWLStatus, "Id", "DWWLStatusName", dWWorkLog.DWWLSatusId);
+            ViewData["DWWLStatusId"] = new SelectList(_context.DWWLStatus, "Id", "DWWLStatusName", dWWorkLog.DWWLStatusId);
             return View(dWWorkLog);
         }
 
@@ -113,9 +129,9 @@ namespace NBSTimeReporting.DWorkin.Controllers
                 return NotFound();
             }
             ViewData["CompanyId"] = new SelectList(_context.Company, "Id", "CompanyName", dWWorkLog.CompanyId);
-            ViewData["SiteId"] = new SelectList(_context.Site, "Id", "NOSite", dWWorkLog.SiteId);
+            ViewData["SiteId"] = new SelectList(_context.Site, "Id", "NoSite", dWWorkLog.SiteId);
             ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", dWWorkLog.PersonId);
-            ViewData["DWWLStatusId"] = new SelectList(_context.DWWLStatus, "Id", "DWWLStatusName", dWWorkLog.DWWLSatusId);
+            ViewData["DWWLStatusId"] = new SelectList(_context.DWWLStatus, "Id", "DWWLStatusName", dWWorkLog.DWWLStatusId);
             return View(dWWorkLog);
         }
 
@@ -124,7 +140,7 @@ namespace NBSTimeReporting.DWorkin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,WLNumber,Type,State,PersonId,DateFrom,DateTo,BusUnit,CompanyId,SiteId,Subject,TotalHours,DayOffHours,ToInvoiceHours,OBH,WH,WSatisfactionHours,Coefficient,DWWLStatus")] DWWorkLog dWWorkLog)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,WLNumber,Type,State,PersonId,DateFrom,DateTo,BusUnit,CompanyId,SiteId,Subject,TotalHours,DayOffHours,ToInvoiceHours,OBH,WH,WSatisfactionHours,Coefficient,DWWLStatusId")] DWWorkLog dWWorkLog)
         {
             if (id != dWWorkLog.Id)
             {
@@ -152,9 +168,9 @@ namespace NBSTimeReporting.DWorkin.Controllers
                 return RedirectToAction(nameof(ListDWWorkLogs));
             }
             ViewData["CompanyId"] = new SelectList(_context.Company, "Id", "CompanyName", dWWorkLog.CompanyId);
-            ViewData["SiteId"] = new SelectList(_context.Site, "Id", "NOSite", dWWorkLog.SiteId);
+            ViewData["SiteId"] = new SelectList(_context.Site, "Id", "NoSite", dWWorkLog.SiteId);
             ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", dWWorkLog.PersonId);
-            ViewData["DWWLStatusId"] = new SelectList(_context.DWWLStatus, "Id", "DWWLStatusName", dWWorkLog.DWWLSatusId);
+            ViewData["DWWLStatusId"] = new SelectList(_context.DWWLStatus, "Id", "DWWLStatusName", dWWorkLog.DWWLStatusId);
             return View(dWWorkLog);
         }
 

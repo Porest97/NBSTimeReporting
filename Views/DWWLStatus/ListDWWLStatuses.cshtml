@@ -4,11 +4,11 @@
 }
 
 <h1>DWorkin WL Statuses</h1>
-
-<a class="btn btn-sm btn-success" asp-controller="DWWLStatus" asp-action="Create">Create new Dworkin WL Status</a>
-<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="DWorkin">Back to Dworkin</a>
-
 <div class="badge">
+    <a class="btn btn-sm btn-success" asp-controller="DWWLStatus" asp-action="Create">Create new Dworkin WL Status</a>
+    <a class="btn btn-sm btn-success" asp-controller="Home" asp-action="DWorkin">Back to Dworkin</a>
+
+
     <table class="table table-responsive-sm table-striped">
         <thead>
             <tr>
@@ -18,7 +18,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.DWWLStatuses[0].DWWLStatusName)
                 </th>
-                
+
 
                 <th></th>
             </tr>
@@ -33,7 +33,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.DWWLStatusName)
                     </td>
-                    
+
                     <td>
                         <a class="btn btn-sm btn-success" asp-controller="DWWLStatus" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                         <a class="btn btn-sm btn-success" asp-controller="DWWLStatus" asp-action="Details" asp-route-id="@item.Id">Details</a>

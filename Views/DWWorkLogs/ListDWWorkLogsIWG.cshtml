@@ -1,9 +1,10 @@
 ﻿@model NBSTimeReporting.DWorkin.Models.ViewModels.DWWorkLogViewModel
 @{
-    ViewData["Title"] = "ListDWWorkLogs";
+    ViewData["Title"] = "ListDWWorkLogsIWG";
 }
 
-<h1>Dworkin Work Logs (WL) </h1>
+<h1>IWG Management (Sweden) AB (WLs) </h1>
+
 <div class="badge">
     <a class="btn btn-sm btn-success" asp-controller="DWWOrkLogs" asp-action="Create">Create new Dworkin WL</a>
     <a class="btn btn-sm btn-success" asp-controller="Home" asp-action="DWorkin">Back to Dworkin</a>
@@ -60,7 +61,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Technician.FullName)
                     </td>
-                    
+                   
                     <td>
                         @Html.DisplayFor(modelItem => item.DWWLStatus.DWWLStatusName)
                     </td>
