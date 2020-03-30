@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NBSTimeReporting.Data;
 
 namespace NBSTimeReporting.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200316222941_NBSAssetsAdded")]
+    partial class NBSAssetsAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1259,21 +1261,6 @@ namespace NBSTimeReporting.Migrations
                     b.ToTable("CompanyType");
                 });
 
-            modelBuilder.Entity("NBSTimeReporting.Models.SettingModels.InvoiceStatus", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("InvoiceStatusName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("InvoiceStatus");
-                });
-
             modelBuilder.Entity("NBSTimeReporting.Models.SettingModels.PersonRole", b =>
                 {
                     b.Property<int>("Id")
@@ -1546,54 +1533,6 @@ namespace NBSTimeReporting.Migrations
                     b.HasIndex("SiteId");
 
                     b.ToTable("NBSAsset");
-                });
-
-            modelBuilder.Entity("NBSTimeReporting.NetelloAB.Models.DataModels.NetelloInvoice", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("DWWorkLogId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("DueDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FoerNoxNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("HourPrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int?>("InvoiceStatusId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("MaterialKost")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime?>("PayedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("RegusTicketId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("TotalKost")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("WLHours")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DWWorkLogId");
-
-                    b.HasIndex("InvoiceStatusId");
-
-                    b.HasIndex("RegusTicketId");
-
-                    b.ToTable("NetelloInvoice");
                 });
 
             modelBuilder.Entity("NBSTimeReporting.Offering.DataModels.Offer", b =>
@@ -2042,21 +1981,6 @@ namespace NBSTimeReporting.Migrations
                     b.HasOne("NBSTimeReporting.Models.DataModels.Site", "Location")
                         .WithMany()
                         .HasForeignKey("SiteId");
-                });
-
-            modelBuilder.Entity("NBSTimeReporting.NetelloAB.Models.DataModels.NetelloInvoice", b =>
-                {
-                    b.HasOne("NBSTimeReporting.DWorkin.Models.DataModels.DWWorkLog", "DWWorkLog")
-                        .WithMany()
-                        .HasForeignKey("DWWorkLogId");
-
-                    b.HasOne("NBSTimeReporting.Models.SettingModels.InvoiceStatus", "InvoiceStatus")
-                        .WithMany()
-                        .HasForeignKey("InvoiceStatusId");
-
-                    b.HasOne("NBSTimeReporting.DWorkin.Regus.DataModels.RegusTicket", "RegusTicket")
-                        .WithMany()
-                        .HasForeignKey("RegusTicketId");
                 });
 
             modelBuilder.Entity("NBSTimeReporting.Offering.DataModels.Offer", b =>

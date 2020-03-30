@@ -1,0 +1,89 @@
+﻿@model IEnumerable<NBSTimeReporting.NetelloAB.Models.DataModels.NetelloInvoice>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RegusTicket)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DWWorkLog)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WLHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaterialKost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HourPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalKost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InvoiceStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PayedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoerNoxNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegusTicket.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DWWorkLog.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WLHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaterialKost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HourPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalKost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvoiceStatus.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoerNoxNumber)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

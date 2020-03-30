@@ -14,25 +14,25 @@
             @Html.DisplayNameFor(model => model.PersonRole)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PersonRole.Id)
+            @Html.DisplayFor(model => model.PersonRole.PersonRoleName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.PersonStatus)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PersonStatus.Id)
+            @Html.DisplayFor(model => model.PersonStatus.PersonStatusName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.PersonType)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PersonType.Id)
+            @Html.DisplayFor(model => model.PersonType.PersonTypeName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Company)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Company.Id)
+            @Html.DisplayFor(model => model.Company.CompanyName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.FirstName)
@@ -115,6 +115,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    <a class="btn btn-sm btn-success" asp-action="ListPeople">Back to People</a>
 </div>

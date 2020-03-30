@@ -22,7 +22,10 @@ namespace NBSTimeReporting.Assets.AssetsControllers
         // GET: Assets
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Asset.Include(a => a.AssetBrand).Include(a => a.AssetType).Include(a => a.Site);
+            var applicationDbContext = _context.Asset
+                .Include(a => a.AssetBrand)
+                .Include(a => a.AssetType)
+                .Include(a => a.Site);
             return View(await applicationDbContext.ToListAsync());
         }
 

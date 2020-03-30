@@ -51,25 +51,25 @@
             @Html.DisplayNameFor(model => model.CompanyRole)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CompanyRole.Id)
+            @Html.DisplayFor(model => model.CompanyRole.CompanyRoleName)
         </dd class>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.CompanyStatus)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CompanyStatus.Id)
+            @Html.DisplayFor(model => model.CompanyStatus.CompanyStatusName)
         </dd class>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.CompanyType)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CompanyType.Id)
+            @Html.DisplayFor(model => model.CompanyType.CompanyTypeName)
         </dd class>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-sm btn-danger" />
+        <a class="btn btn-sm btn-success" asp-action="ListCompanies">Back to companies</a>
     </form>
 </div>

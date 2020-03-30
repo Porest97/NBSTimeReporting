@@ -1,0 +1,94 @@
+﻿@model NBSTimeReporting.NetelloAB.Models.ViewModels.NetelloInvoicesViewModel
+@{
+    ViewData["Title"] = "ListNetelloInvoices";
+}
+
+<h1>Netello AB - Invoices</h1>
+
+<div class="badge badge-light text-center">    
+    <div class="badge badge-light">
+        <a class="btn btn-sm btn-success" asp-controller="NetelloInvoices" asp-action="Create">Create new Netello Invoice</a>
+        <a class="btn btn-sm btn-success" asp-controller="Home" asp-action="NBS">Back to NBS</a>
+
+
+        <table class="table table-responsive table-striped table-light">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NetelloInvoices[0].DueDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NetelloInvoices[0].DWWorkLog.Technician)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NetelloInvoices[0].RegusTicket.IncidentNumber)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.NetelloInvoices[0].WLHours)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NetelloInvoices[0].HourPrice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NetelloInvoices[0].MaterialKost)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NetelloInvoices[0].TotalKost)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NetelloInvoices[0].DWWorkLog.WLNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NetelloInvoices[0].InvoiceStatus)
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.NetelloInvoices.OrderBy(ni => ni.DueDate))
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DueDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DWWorkLog.Technician.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RegusTicket.IncidentNumber)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WLHours)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HourPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaterialKost)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalKost)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DWWorkLog.WLNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InvoiceStatus.InvoiceStatusName)
+                    </td>
+
+
+                    <td>
+                        <a class="btn btn-sm btn-success" asp-controller="NetelloInvoices" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a class="btn btn-sm btn-success" asp-controller="NetelloInvoices" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a class="btn btn-sm btn-danger" asp-controller="NetelloInvoices" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

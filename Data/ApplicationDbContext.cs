@@ -12,6 +12,8 @@ using NBSTimeReporting.Offering.DataModels;
 using NBSTimeReporting.Assets.DataModels;
 using NBSTimeReporting.DWorkin.Regus.DataModels;
 using NBSTimeReporting.DWorkin.Models.DataModels;
+using NBSTimeReporting.NBSInventory.Models.DataModels;
+using NBSTimeReporting.NetelloAB.Models.DataModels;
 
 namespace NBSTimeReporting.Data
 {
@@ -60,5 +62,7 @@ namespace NBSTimeReporting.Data
         public DbSet<NBSTimeReporting.DWorkin.Regus.DataModels.RegusTicket> RegusTicket { get; set; }
         public DbSet<NBSTimeReporting.DWorkin.Models.DataModels.DWWorkLog> DWWorkLog { get; set; }
         public DbSet<NBSTimeReporting.DWorkin.Models.DataModels.DWWLStatus> DWWLStatus { get; set; }
+        public DbSet<NBSTimeReporting.NBSInventory.Models.DataModels.NBSAsset> NBSAsset { get; set; }
+        public DbSet<NBSTimeReporting.NetelloAB.Models.DataModels.NetelloInvoice> NetelloInvoice { get; set; }
     }
 }

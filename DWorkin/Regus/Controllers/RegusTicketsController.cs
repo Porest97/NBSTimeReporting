@@ -85,7 +85,7 @@ namespace NBSTimeReporting.DWorkin.Regus.Controllers
             ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName");
             ViewData["PersonId2"] = new SelectList(_context.Person, "Id", "FullName");
             ViewData["PersonId1"] = new SelectList(_context.Person, "Id", "FullName");
-            ViewData["SiteId"] = new SelectList(_context.Site, "Id", "SiteName");
+            ViewData["SiteId"] = new SelectList(_context.Site, "Id", "NoSite");
             ViewData["TicketPriorityId"] = new SelectList(_context.TicketPriority, "Id", "TicketPriorityName");
             ViewData["TicketStatusId"] = new SelectList(_context.TicketStatus, "Id", "TicketStatusName");
             ViewData["TicketTypeId"] = new SelectList(_context.TicketType, "Id", "TicketTypeName");
@@ -108,7 +108,7 @@ namespace NBSTimeReporting.DWorkin.Regus.Controllers
             ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", regusTicket.PersonId);
             ViewData["PersonId2"] = new SelectList(_context.Person, "Id", "FullName", regusTicket.PersonId2);
             ViewData["PersonId1"] = new SelectList(_context.Person, "Id", "FullName", regusTicket.PersonId1);
-            ViewData["SiteId"] = new SelectList(_context.Site, "Id", "SiteName", regusTicket.SiteId);
+            ViewData["SiteId"] = new SelectList(_context.Site, "Id", "NoSite", regusTicket.SiteId);
             ViewData["TicketPriorityId"] = new SelectList(_context.TicketPriority, "Id", "TicketPriorityName", regusTicket.TicketPriorityId);
             ViewData["TicketStatusId"] = new SelectList(_context.TicketStatus, "Id", "TicketStatusName", regusTicket.TicketStatusId);
             ViewData["TicketTypeId"] = new SelectList(_context.TicketType, "Id", "TicketTypeName", regusTicket.TicketTypeId);
@@ -131,7 +131,7 @@ namespace NBSTimeReporting.DWorkin.Regus.Controllers
             ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", regusTicket.PersonId);
             ViewData["PersonId2"] = new SelectList(_context.Person, "Id", "FullName", regusTicket.PersonId2);
             ViewData["PersonId1"] = new SelectList(_context.Person, "Id", "FullName", regusTicket.PersonId1);
-            ViewData["SiteId"] = new SelectList(_context.Site, "Id", "SiteName", regusTicket.SiteId);
+            ViewData["SiteId"] = new SelectList(_context.Site, "Id", "NoSite", regusTicket.SiteId);
             ViewData["TicketPriorityId"] = new SelectList(_context.TicketPriority, "Id", "TicketPriorityName", regusTicket.TicketPriorityId);
             ViewData["TicketStatusId"] = new SelectList(_context.TicketStatus, "Id", "TicketStatusName", regusTicket.TicketStatusId);
             ViewData["TicketTypeId"] = new SelectList(_context.TicketType, "Id", "TicketTypeName", regusTicket.TicketTypeId);
@@ -173,7 +173,7 @@ namespace NBSTimeReporting.DWorkin.Regus.Controllers
             ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", regusTicket.PersonId);
             ViewData["PersonId2"] = new SelectList(_context.Person, "Id", "FullName", regusTicket.PersonId2);
             ViewData["PersonId1"] = new SelectList(_context.Person, "Id", "FullName", regusTicket.PersonId1);
-            ViewData["SiteId"] = new SelectList(_context.Site, "Id", "SiteName", regusTicket.SiteId);
+            ViewData["SiteId"] = new SelectList(_context.Site, "Id", "NoSite", regusTicket.SiteId);
             ViewData["TicketPriorityId"] = new SelectList(_context.TicketPriority, "Id", "TicketPriorityName", regusTicket.TicketPriorityId);
             ViewData["TicketStatusId"] = new SelectList(_context.TicketStatus, "Id", "TicketStatusName", regusTicket.TicketStatusId);
             ViewData["TicketTypeId"] = new SelectList(_context.TicketType, "Id", "TicketTypeName", regusTicket.TicketTypeId);

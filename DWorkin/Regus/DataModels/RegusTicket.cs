@@ -104,6 +104,10 @@ namespace NBSTimeReporting.DWorkin.Regus.DataModels
         [Display(Name = "WL Hours")]
         public decimal WLHours { get; set; }
 
+        // Incedent to Invoice concatination
 
+       
+
+       
     }
 }

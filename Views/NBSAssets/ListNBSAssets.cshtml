@@ -1,0 +1,69 @@
+﻿@model NBSTimeReporting.NBSInventory.Models.ViewModels.NBSAssetsViewModel
+@{
+    ViewData["Title"] = "ListNBSAssets";
+}
+
+    <div class="badge badge-dark text-center">
+        <div class="badge badge-dark">
+            <h1>NBS - Asset List</h1>
+        </div>
+        <div class="badge badge-dark">
+            <a class="btn btn-sm btn-success" asp-controller="NBSAssets" asp-action="Create">Create new NBS asset</a>
+            <a class="btn btn-sm btn-success" asp-controller="Home" asp-action="NBS">Back to NBS</a>
+
+
+            <table class="table table-responsive-sm table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NBSAssets[0].NBSAssetName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NBSAssets[0].Owner)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NBSAssets[0].AssetType)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.NBSAssets[0].Location)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NBSAssets[0].AssetStatus)
+                        </th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.NBSAssets.OrderBy(nbss => nbss.AssetStatus))
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NBSAssetName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Owner.CompanyName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AssetType.AssetTypeName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Location.NoSite)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AssetStatus.AssetStatusName)
+                            </td>
+
+
+                            <td>
+                                <a class="btn btn-sm btn-success" asp-controller="NBSAssets" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                <a class="btn btn-sm btn-success" asp-controller="NBSAssets" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                                <a class="btn btn-sm btn-danger" asp-controller="NBSAssets" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+ </div>

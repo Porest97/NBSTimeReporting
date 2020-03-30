@@ -1,0 +1,113 @@
+﻿@model IEnumerable<NBSTimeReporting.NBSInventory.Models.DataModels.NBSAsset>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn tbn-sm btn-success" asp-action="Create">Create New NBS Asset</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NBSAssetNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NBSAssetName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Owner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetBrand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MACAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SerialNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Connectivity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocalIP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ethernet1LLDP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ethernet1)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NBSAssetNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NBSAssetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Owner.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location.NoSite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssetStatus.AssetStatusName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssetType.AssetTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssetBrand.AssetBrandName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MACAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerialNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Connectivity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocalIP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ethernet1LLDP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ethernet1)
+            </td>
+            <td>
+                <a class="btn tbn-sm btn-success" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <a class="btn tbn-sm btn-success" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                <a class="btn tbn-sm btn-success" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

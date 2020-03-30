@@ -8,7 +8,7 @@
 <a class="btn btn-sm btn-success" asp-controller="RegusTickets" asp-action="Create">Create new TICKET</a>
 <a class="btn btn-sm btn-success" asp-controller="RegusTickets" asp-action="ListTicketsSolved">To Solved Tickets</a>
 <a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Regus">Back to Regus</a>
-
+<h4>WL Hours: @Model.RegusTickets.Sum(rt => rt.WLHours)</h4>
 
 <table class="table table-responsive-sm table-striped">
     <thead>

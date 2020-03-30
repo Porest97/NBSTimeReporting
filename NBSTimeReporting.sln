@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBSTimeReporting", "NBSTimeReporting.csproj", "{67C8E22C-DFA9-4051-8A5F-9B0FCE921C05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBSTimeReporting", "NBSTimeReporting.csproj", "{67C8E22C-DFA9-4051-8A5F-9B0FCE921C05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
